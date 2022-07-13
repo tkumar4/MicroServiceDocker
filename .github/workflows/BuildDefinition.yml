@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore .\..\..\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
+      run: dotnet restore D:\a\MicroServiceDocker\MicroServiceDocker\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
     - name: Build
       run: dotnet build ..\..\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
     #- name: Test

@@ -20,8 +20,8 @@ jobs:
     - name: Restore dependencies
       
       run: |
-       echo ${GITHUB_WORKSPACE}  
-       dotnet restore D:\a\MicroServiceDocker\MicroServiceDocker\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
+       echo "Location of current directory  ${{GITHUB_WORKSPACE}}"  
+       dotnet restore \MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
     - name: Build
       run: dotnet build ..\..\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
     #- name: Test

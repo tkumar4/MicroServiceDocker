@@ -38,7 +38,7 @@ jobs:
         # Path to the project to publish.
         path: .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
         # Directory where all packages will be put (default value is 'packages').
-        output-dir: .\
+        output-dir: $env:GITHUB_PATH\output
         # Build configuration for the build (default value is 'Release').
         build-configuration: 'Release'
         # Whether to skip the build using the --no-build flag (default value is 'true').

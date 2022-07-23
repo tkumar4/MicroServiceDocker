@@ -27,6 +27,9 @@ jobs:
       run: dotnet build .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
     #- name: Test
      # run: dotnet test --no-build --verbosity normal
+    - name: Creates directory
+      run: |
+         mkdir .\MicroserviceHelloWorld\PublishedOutput
     - name: Dotnet Publish
     # You may pin to the exact commit or the version.
     # uses: EasyDesk/action-dotnet-publish@75033960a28daa2ea89e0c1d8a04754568996506

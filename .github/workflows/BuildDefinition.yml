@@ -31,4 +31,6 @@ jobs:
     #  run: |
     #     mkdir .\MicroserviceHelloWorld\PublishedOutput
     - name: Dotnet Publish
-      run: dotnet publish .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -o .\MicroserviceHelloWorld\PublishedOutput
+      run: |
+       dotnet publish .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -o .\MicroserviceHelloWorld\PublishedOutput
+       dir .\MicroserviceHelloWorld\PublishedOutput

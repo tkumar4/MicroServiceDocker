@@ -1,0 +1,42 @@
+name: asp.net core application build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      
+      run: |
+       echo "Location of current directory  $env:GITHUB_WORKSPACE and github path is $env:GITHUB_PATH"
+       dir
+       dotnet restore .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
+    - name: Build
+      run: dotnet build .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
+    #- name: Test
+     # run: dotnet test --no-build --verbosity normal
+    #- name: Creates directory
+    #  run: |
+    #     mkdir .\MicroserviceHelloWorld\PublishedOutput
+    - name: Dotnet Publish
+      run: |
+       dotnet publish .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -o .\MicroserviceHelloWorld\PublishedOutput
+       dir .\MicroserviceHelloWorld\PublishedOutput
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: 'MicroHelloWorld'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+        package: .\MicroserviceHelloWorld\PublishedOutput

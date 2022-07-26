@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MicroserviceHelloWorld/bin/Debug/net6.0
+/.vs/MicroserviceHelloWorld/FileContentIndex/a7bb36be-0080-4dd5-9f98-d46bf4eb2bbe.vsidx
+/.vs/MicroserviceHelloWorld/FileContentIndex/d4491065-fea9-4d81-a608-1c269e81d31f.vsidx
+/.vs/MicroserviceHelloWorld/FileContentIndex/e74c3113-c0e4-460d-a7b6-5f8afb19f5a8.vsidx
+/Shared/obj/Debug/net6.0/Shared.csproj.BuildWithSkipAnalyzers

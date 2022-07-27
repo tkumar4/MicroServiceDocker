@@ -30,13 +30,17 @@ jobs:
     #- name: Creates directory
     #  run: |
     #     mkdir .\MicroserviceHelloWorld\PublishedOutput
-    - name: Dotnet Publish
+    #- name: Dotnet Publish
+    #  run: |
+    #   dotnet publish .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -o .\MicroserviceHelloWorld\PublishedOutput
+    #   dir .\MicroserviceHelloWorld\PublishedOutput
+    #- name: 'Run Azure webapp deploy action using publish profile credentials'
+    #  uses: azure/webapps-deploy@v2
+    #  with: 
+    #    app-name: 'MicroHelloWorld'
+    #    publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
+    #    package: .\MicroserviceHelloWorld\PublishedOutput
+    - name: Docker Build
       run: |
-       dotnet publish .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -o .\MicroserviceHelloWorld\PublishedOutput
-       dir .\MicroserviceHelloWorld\PublishedOutput
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v2
-      with: 
-        app-name: 'MicroHelloWorld'
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
-        package: .\MicroserviceHelloWorld\PublishedOutput
+         docker build -t counter-image -f .\MicroserviceHelloWorld
+         docker images

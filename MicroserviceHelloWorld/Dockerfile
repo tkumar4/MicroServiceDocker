@@ -12,7 +12,7 @@ RUN DIR
 WORKDIR /src
 #COPY ["MicroserviceHelloWorld/MicroserviceHelloWorld.csproj", "MicroserviceHelloWorld/"]
 #RUN dotnet restore "MicroserviceHelloWorld/MicroserviceHelloWorld.csproj"
-COPY ../ ./
+COPY . .
 RUN DIR
 WORKDIR "/src/MicroserviceHelloWorld"
 RUN dotnet restore "MicroserviceHelloWorld.csproj"

@@ -42,5 +42,5 @@ jobs:
     #    package: .\MicroserviceHelloWorld\PublishedOutput
     - name: Docker Build
       run: |
-         docker build -t helloworldservice:1.0 -f .\MicroserviceHelloWorld .
+         docker build -t helloworldservice:1.0 -f .\MicroserviceHelloWorld\dockerfile .
          docker images

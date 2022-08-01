@@ -51,4 +51,5 @@ jobs:
      #   password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: | 
          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} tkhelloworldregistry.azurecr.io
-         docker push 1.0
+         docker image tag helloworldimage:1.0 tkhelloworldregistry.azurecr.io/sample/rhel-httpd:latest
+         docker push tkhelloworldregistry.azurecr.io/sample/rhel-httpd:latest

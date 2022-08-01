@@ -51,4 +51,5 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: | 
-         docker push tkhelloworldregistry.azurecr.io/helloworldservice:1.0
+         docker tag helloworldservice:1.0 tkhelloworldregistry.azurecr.io/smaple
+         docker push tkhelloworldregistry.azurecr.io/sample

@@ -49,5 +49,6 @@ jobs:
         login-server: tkhelloworldregistry.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
-        run: | 
+    
+    - run: | 
          docker push helloworldservice:1.0

@@ -24,7 +24,7 @@ jobs:
        dir
        dotnet restore .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
     - name: Build
-      run: dotnet build .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
+      #run: dotnet build .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
     #- name: Test
      # run: dotnet test --no-build --verbosity normal
     #- name: Creates directory
@@ -51,5 +51,4 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: | 
-         docker tag helloworldservice:1.0 tkhelloworldregistry.azurecr.io/smaple
-         docker push tkhelloworldregistry.azurecr.io/sample
+         docker push helloworldservice:1.0

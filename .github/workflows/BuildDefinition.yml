@@ -22,7 +22,7 @@ jobs:
       run: |
        echo "Location of current directory  $env:GITHUB_WORKSPACE and github path is $env:GITHUB_PATH"
        dir
-       dotnet restore .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj
+       dotnet restore ./MicroserviceHelloWorld/MicroserviceHelloWorld.csproj
     #- name: Build
       #run: dotnet build .\MicroserviceHelloWorld\MicroserviceHelloWorld.csproj -c Release
     #- name: Test

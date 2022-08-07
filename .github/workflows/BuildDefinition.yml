@@ -42,7 +42,7 @@ jobs:
     #    package: .\MicroserviceHelloWorld\PublishedOutput
     - name: Docker Build
       run: |
-         docker build -t helloworldimage:1.0 -f .\MicroserviceHelloWorld\dockerfile .
+         docker build -t helloworldimage:1.0 -f ./MicroserviceHelloWorld/dockerfile .
          docker images
     #- uses: azure/docker-login@v1
      # with:

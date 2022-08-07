@@ -8,12 +8,10 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-RUN DIR
 WORKDIR /src
 #COPY ["MicroserviceHelloWorld/MicroserviceHelloWorld.csproj", "MicroserviceHelloWorld/"]
 #RUN dotnet restore "MicroserviceHelloWorld/MicroserviceHelloWorld.csproj"
 COPY . .
-RUN DIR
 WORKDIR "/src/MicroserviceHelloWorld"
 RUN dotnet restore "MicroserviceHelloWorld.csproj"
 RUN dotnet build "MicroserviceHelloWorld.csproj" -c Release -o /app/build
@@ -22,7 +20,6 @@ FROM build AS publish
 RUN dotnet publish "MicroserviceHelloWorld.csproj" -c Release -o /app/publish
 
 FROM base AS final
-RUN DIR
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "MicroserviceHelloWorld.dll"]
